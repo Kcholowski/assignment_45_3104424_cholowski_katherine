@@ -3,8 +3,11 @@ import createError from "http-errors";
 import logger from "morgan";
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
+import mongoose from 'mongoose';
 
 const app = express();
+
+mongoose.connect(process.env.DATABASE_URL || 'mongod://localhost/assignment_45');
 
 app.use(logger("dev"));
 app.use(express.json());
