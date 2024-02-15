@@ -18,7 +18,7 @@ export const getMonster = async (req, res) => {
         const monster = await getMonstersFromRepository({ id: id});
         res.status(200).send(monster);
     } catch (e) {
-        res.status(500).send(e.message, `failed to fetch monster ${id}`);
+        res.status(500).send(`${e.message} failed to fetch monster ${id}`);
     }
 }
 
@@ -29,7 +29,7 @@ export const updateMonster = async (req, res) => {
       const monster = await updateMonstersInRepository({ _id: id }, body);
       res.status(200).send(monster);
     } catch (e) {
-      res.status(500).send(e.message, `failed to fetch monster ${id}`);
+      res.status(500).send(`${e.message} failed to fetch monster ${id}`);
     }
   }
 
@@ -43,17 +43,17 @@ export const updateMonster = async (req, res) => {
         res.status(404).send(`failed to delete monster ${id}`);
       };
     } catch (e) {
-        res.status(500).send(e.message, `failed to delete monster ${id}`);
+        res.status(500).send(`${e.message} failed to delete monster ${id}`);
     }
   };
   export const createMonster = async (req, res) => {
     const { body } = req; 
-    
+
     try {
       const monster = await createMonstersInRepository(body);
       console.log(monster);
       res.status(200).send(monster);
     } catch (e) {
-      res.status(500).send(e.message, `failed to create monster`);
+      res.status(500).send(`${e.message} failed to create monster`);
     }
   }
