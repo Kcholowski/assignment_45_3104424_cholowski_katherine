@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 
 const app = express();
 
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost/assignment_45');
+mongoose.connect(process.env.DATABASE_URL || 'mongodb+srv://admin:jeeperscreepers22@monsters.gnxefgd.mongodb.net/?retryWrites=true&w=majority');
 
 app.use(logger("dev"));
 app.use(express.json());
